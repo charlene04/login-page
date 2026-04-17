@@ -17,24 +17,22 @@
     <!-- Password -->
     <div class="field">
       <label for="password"> Password <span class="required">*</span> </label>
-      <div class="password-wrapper">
+      <div class="password-wrapper" :class="{ 'input-error': errors.password }">
         <input
           id="password"
           v-model="password"
           :type="showPassword ? 'text' : 'password'"
           placeholder="Enter your password"
-          :class="{ 'input-error': errors.password }"
           @blur="validatePassword"
         />
         <button type="button" class="toggle-eye" @click="showPassword = !showPassword">
-          <span v-if="showPassword">🙈</span>
-          <span v-else>👁️</span>
+          <EyeOff v-if="showPassword" :size="18" />
+          <Eye v-else :size="18" />
         </button>
       </div>
       <span v-if="errors.password" class="error-msg">{{ errors.password }}</span>
     </div>
 
-    <!-- Remember me + Forgot Password -->
     <div class="form-extras">
       <label class="remember">
         <input type="checkbox" v-model="rememberMe" />
@@ -43,19 +41,18 @@
       <a href="#" class="forgot-link">Forgot Password?</a>
     </div>
 
-    <!-- Sign In Button -->
     <button class="btn-signin" @click="handleSubmit" :disabled="isLoading">
       <span v-if="isLoading">Signing in...</span>
       <span v-else>Sign in</span>
     </button>
 
-    <!-- Sign Up Link -->
     <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { Eye, EyeOff } from 'lucide-vue-next'
 
 const email = ref('')
 const password = ref('')
@@ -152,28 +149,49 @@ input.input-error {
   color: var(--color-error);
 }
 
-/* Password field */
 .password-wrapper {
-  position: relative;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.password-wrapper:focus-within {
+  border-color: var(--color-primary);
+}
+
+.password-wrapper.input-error {
+  border-color: var(--color-error);
 }
 
 .password-wrapper input {
-  padding-right: 2.8rem;
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  background: transparent;
 }
 
 .toggle-eye {
-  position: absolute;
-  right: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.85rem;
+  background-color: #f7f7f7;
   border: none;
+  border-left: 1px solid var(--color-border);
   cursor: pointer;
-  font-size: 1rem;
-  padding: 0;
+  color: #888;
+  transition: background-color 0.2s;
 }
 
-/* Extras row */
+.toggle-eye:hover {
+  background-color: #e8e8e8;
+}
+
 .form-extras {
   display: flex;
   justify-content: space-between;

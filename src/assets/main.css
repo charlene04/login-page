@@ -13,10 +13,10 @@ body {
 }
 
 :root {
-  --color-primary: #6a0dad;
+  --color-primary: #61227d;
   --color-primary-hover: #580b99;
   --color-accent: #e87722;
-  --color-bg-left: #f3e8ff;
+  --color-bg-left: #f8eaff;
   --color-text-muted: #555;
   --color-border: #ccc;
   --color-error: #cc0000;

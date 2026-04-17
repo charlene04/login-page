@@ -6,7 +6,6 @@
         <img src="../assets/logo.png" alt="Team Achieve Logo" class="logo" />
       </div>
 
-      <!-- Centered content -->
       <div class="left-center">
         <div class="hero-image-container">
           <img src="../assets/banner.png" alt="Team celebrating" class="hero-image" />
@@ -21,6 +20,11 @@
     <!-- RIGHT PANEL -->
     <div class="right-panel">
       <div class="form-card">
+        <!-- Logo shown only on mobile -->
+        <div class="mobile-brand">
+          <img src="../assets/logo.png" alt="Team Achieve Logo" class="logo" />
+        </div>
+
         <h1 class="form-title">Welcome Back</h1>
         <p class="form-subtitle">Enter your email address and password to access your account.</p>
 
@@ -42,7 +46,7 @@ import LoginForm from './LoginForm.vue'
 
 /* LEFT PANEL */
 .left-panel {
-  width: 40%;
+  width: 50%;
   background-color: var(--color-bg-left);
   display: flex;
   flex-direction: column;
@@ -85,13 +89,13 @@ import LoginForm from './LoginForm.vue'
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
+  padding: 0 20px;
 }
 
 .hero-image {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 12px;
+  height: 560px;
+  border-radius: 20px;
 }
 
 .tagline {
@@ -112,7 +116,7 @@ import LoginForm from './LoginForm.vue'
 
 /* RIGHT PANEL */
 .right-panel {
-  width: 60%;
+  width: 50%;
   background: #fff;
   display: flex;
   align-items: center;
@@ -123,6 +127,14 @@ import LoginForm from './LoginForm.vue'
 .form-card {
   width: 100%;
   max-width: 480px;
+}
+
+.mobile-brand {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-title {
@@ -144,15 +156,21 @@ import LoginForm from './LoginForm.vue'
 @media (max-width: 768px) {
   .login-wrapper {
     flex-direction: column;
+    background: #fff;
   }
 
   .left-panel {
-    display: none; /* hide on mobile, matches the mobile mockup */
+    display: none;
   }
 
   .right-panel {
     width: 100%;
     padding: 2rem 1.25rem;
+    background: #fff;
+  }
+
+  .mobile-brand {
+    display: flex;
   }
 }
 </style>
