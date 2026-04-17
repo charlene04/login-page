@@ -4,14 +4,17 @@
     <div class="left-panel">
       <div class="brand">
         <img src="../assets/logo.png" alt="Team Achieve Logo" class="logo" />
-        <span class="brand-name">Team Achieve</span>
       </div>
-      <div class="hero-image-container">
-        <img src="../assets/hero.jpg" alt="Team celebrating" class="hero-image" />
-      </div>
-      <div class="tagline">
-        <p class="tagline-title">Team Achieve</p>
-        <p class="tagline-sub">Your perfect solution for funding your desires</p>
+
+      <!-- Centered content -->
+      <div class="left-center">
+        <div class="hero-image-container">
+          <img src="../assets/banner.png" alt="Team celebrating" class="hero-image" />
+        </div>
+        <div class="tagline">
+          <p class="tagline-title">Team Achieve</p>
+          <p class="tagline-sub">Your perfect solution for funding your desires</p>
+        </div>
       </div>
     </div>
 
@@ -43,22 +46,33 @@ import LoginForm from './LoginForm.vue'
   background-color: var(--color-bg-left);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 2rem;
-  gap: 1.5rem;
+  position: relative;
 }
 
 .brand {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.4rem;
 }
 
+.left-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1.5rem;
+}
+
 .logo {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
+  width: 198px;
+  height: 97px;
+  top: 24px;
+  left: 45px;
 }
 
 .brand-name {
